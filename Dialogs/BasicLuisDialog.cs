@@ -22,7 +22,7 @@ namespace Microsoft.Bot.Sample.LuisBot
         [LuisIntent("None")]
         public async Task NoneIntent(IDialogContext context, LuisResult result)
         {
-            await context.PostAsync($"Hello! I am your IT Service Desk Virtual Assistant , I can help you with IT service related issues and requests. How may I help you today?");
+            await this.ShowLuisResult(context, result);
         }
 
         // Go to https://luis.ai and create a new intent, then train/publish your luis app.
@@ -30,7 +30,8 @@ namespace Microsoft.Bot.Sample.LuisBot
         [LuisIntent("Greeting")]
         public async Task GreetingIntent(IDialogContext context, LuisResult result)
         {
-            await this.ShowLuisResult(context, result);
+            await context.PostAsync($"Hello! I am your IT Service Desk Virtual Assistant , I can help you with IT service related issues and requests. How may I help you today?");
+            
         }
 
         [LuisIntent("Cancel")]
